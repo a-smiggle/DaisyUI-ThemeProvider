@@ -6,6 +6,7 @@ const ThemeContext = createContext<ThemeValue | undefined>(undefined);
 
 export default function DaisyUIThemeProvider(props: CustomProps) {
     const [theme, setTheme] = useState('light');
+    const [loading, setLoading] = useState(true);
 
     function systemCheck(){
         if (window.matchMedia && 
@@ -33,7 +34,7 @@ export default function DaisyUIThemeProvider(props: CustomProps) {
     
     useEffect(() => {
         localStorage.setItem('daisyUI-theme', theme);
-        document.documentElement.setAttribute("data-theme", theme);
+        setLoading(false);
     }, [theme]);
 
     const updateTheme = (newTheme:string) => {
@@ -44,7 +45,12 @@ export default function DaisyUIThemeProvider(props: CustomProps) {
 
     return (
         <ThemeContext.Provider  value={{ theme, updateTheme }}>
-            {props.children}  
+            {
+            loading ? null : 
+            <div data-theme={theme}>
+                {props.children }
+            </div>
+            }
         </ThemeContext.Provider>
     )
 }
