@@ -1,6 +1,6 @@
 {
   "name": "daisyui-themeprovider",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Next.js DaisyUI Theme provider.",
   "author": "a-smiggle",
   "private": false,
@@ -19,7 +19,10 @@
     "react",
     "typescript",
     "nextjs",
-    "npm"
+    "npm",
+    "daisyui",
+    "themes",
+    "dark-mode"
   ],
   "scripts": {
     "build": "npm run build:esm && npm run build:cjs",

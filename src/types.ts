@@ -1,5 +1,6 @@
 export type CustomProps = {
     children: React.ReactNode;
+    useSystem?: boolean;
 };
 
 export type ThemeValue = {
